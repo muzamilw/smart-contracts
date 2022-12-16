@@ -23,3 +23,4 @@ run commmand : yarn hardhat compile
 
 run command : yarn hardhat deploy --network alfajores
 
+you will notice the transaction id and contract address. this requires that you have the fuel currency in your wallet for that netowrk. use fountains to get the currency in test environments, and in live environments you will need actual currency of that netowkr.
