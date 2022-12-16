@@ -1,0 +1,25 @@
+check out project from github : https://github.com/muzamilw/smart-contracts
+swtich to the root of the project.
+
+install nove version v16.15.0
+if some other version, then instal NVN to configure the above ementioned version.
+
+run command : npm -i
+
+install yarn package manager : npm install --global yarn
+
+run command : npm -i dotenv
+npm install --save-dev hardhat
+run command  : npm install --save-dev  @nomiclabs/hardhat-ethers@npm:hardhat-deploy-ethers ethers
+
+
+create a .env file at the root of project and add the following lines to it, apply the correct MNEMONIC and privatekey.
+MNEMONIC = "your memnomic here"
+PKEY = "your metamask private key here"
+
+open  deploy\deploy.js file, and make the arguments as required i.e. contract name, currency symbol. we are using Tatum721General contract from tatum, which is based on openzepplin template.
+
+run commmand : yarn hardhat compile
+
+run command : yarn hardhat deploy --network alfajores
+

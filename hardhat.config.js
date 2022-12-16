@@ -78,10 +78,7 @@ module.exports = {
     },
     alfajores: {
       url: "https://alfajores-forno.celo-testnet.org",
-      // accounts: {
-      //   mnemonic: "doll soul reason shoulder debris club reason plate galaxy secret dutch lonely",
-      //   path: "m/44'/52752'/0'/0"
-      // },
+     
       accounts: [process.env.PKEY],
 
       chainId: 44787,

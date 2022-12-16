@@ -19,7 +19,7 @@ module.exports = async ({getNamedAccounts, deployments}) => {
   const {deployer} = await getNamedAccounts();
   await deploy('Tatum721General', {
     from: deployer,
-    args: ["MzNFT","MZT",true],
+    args: ["MzNFT1","MZT",true],
     log: true,
   });
 };
