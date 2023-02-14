@@ -1,7 +1,7 @@
 check out project from github : https://github.com/muzamilw/smart-contracts
 swtich to the root of the project.
 
-install nove version v16.15.0
+install node version v16.15.0
 if some other version, then instal NVN to configure the above ementioned version.
 
 run command : npm -i
@@ -13,14 +13,24 @@ npm install --save-dev hardhat
 run command  : npm install --save-dev  @nomiclabs/hardhat-ethers@npm:hardhat-deploy-ethers ethers
 
 
-create a .env file at the root of project and add the following lines to it, apply the correct MNEMONIC and privatekey.
+#create a .env file at the root of project and add the following lines to it, apply the correct MNEMONIC and privatekey.
 MNEMONIC = "your memnomic here"
 PKEY = "your metamask private key here"
+ALCHEMY_API_KEY = "key"
+ALCHEMY_tatumRopsten_API_KEY = "key"
 
-open  deploy\deploy.js file, and make the arguments as required i.e. contract name, currency symbol. we are using Tatum721General contract from tatum, which is based on openzepplin template.
+
+
+
+#open  deploy\deploy.js file, and make the arguments as required i.e. contract name, currency symbol. 
+we are using Tatum721General contract from tatum, which is based on openzepplin template.
 
 run commmand : yarn hardhat compile
 
+#deploy the contract to celo alfajores network for testing.
 run command : yarn hardhat deploy --network alfajores
 
-you will notice the transaction id and contract address. this requires that you have the fuel currency in your wallet for that netowrk. use fountains to get the currency in test environments, and in live environments you will need actual currency of that netowkr.
+#you will notice the transaction id and contract address. this requires that you have the fuel currency in your wallet for that netowrk. use fountains to get the currency in test environments, and in live environments you will need actual currency of that netowkr.
+
+verify the contract code by locating the BlockchainLaboratories721.json file in the deployments \ network folder.
+Use this file to verify the contract at https://sourcify.dev/#/verifier

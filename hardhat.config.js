@@ -7,6 +7,7 @@ require('solidity-coverage');
 require('hardhat-gas-reporter');
 require('dotenv').config();
 require('hardhat-deploy');
+require("@nomiclabs/hardhat-etherscan");
 
 for (const f of fs.readdirSync(path.join(__dirname, 'hardhat'))) {
   require(path.join(__dirname, 'hardhat', f));
@@ -18,12 +19,7 @@ const enableGasReport = !!process.env.ENABLE_GAS_REPORT;
  * @type import('hardhat/config').HardhatUserConfig
  */
 require('@nomiclabs/hardhat-ethers');
-//require("hardhat-deploy-ethers");
-
-const ALCHEMY_API_KEY = "qApy2cT24XLsF9pnYopny_xp2IMWchHh";
-const ALCHEMY_tatumRopsten_API_KEY = "favr7mQYa5P6DsUXJBX5Hb8h4mE0kdTZ";
-
-const ROPSTEN_PRIVATE_KEY = "54a7c749c89600689271102f34334062022b951b7b34b63c88d2cb05c37712aa";
+//require("hardhat-deploy-ethers");in
 
 
 module.exports = {
@@ -67,13 +63,13 @@ module.exports = {
       blockGasLimit: 10000000,
     },
     ropsten: {
-      url: `https://eth-ropsten.alchemyapi.io/v2/${ALCHEMY_tatumRopsten_API_KEY}`,
-      accounts: [`${ROPSTEN_PRIVATE_KEY}`],
+      url: `https://eth-ropsten.alchemyapi.io/v2/${process.env.ALCHEMY_tatumRopsten_API_KEY}`,
+      accounts: [process.env.PKEY],
       gasPrice: `auto`
     },
     goerli: {
-      url: `https://eth-ropsten.alchemyapi.io/v2/${ALCHEMY_API_KEY}`,
-      accounts: [`${ROPSTEN_PRIVATE_KEY}`],
+      url: `https://eth-ropsten.alchemyapi.io/v2/${process.env.ALCHEMY_API_KEY}`,
+      accounts: [process.env.PKEY],
       gasPrice: 600000000000
     },
     alfajores: {
@@ -98,6 +94,31 @@ module.exports = {
       accounts: ['cd2fe348ecbde2a9b1caf0429dfaac4b656b9d969eca290cc106e6cbb38ef1e9'],
       gasPrice: 30 * 1e9
     },
+  },
+  etherscan : {
+    apiKey: {
+      celo: process.env.etherscanapike,
+      goerli: "<goerli-api-key>",
+      alfajores: process.env.etherscanapike,
+    },
+    customChains: [
+      {
+        network: 'celo',
+        chainId: 42220,
+        urls: {
+          apiURL: 'https://explorer.celo.org/api',
+          browserURL: 'https://explorer.celo.org/',
+        },
+      },
+      {
+        network: 'alfajores',
+        chainId: 44787,
+        urls: {
+          apiURL: 'https://api-alfajores.celoscan.io/api',
+          browserURL: 'https://api-alfajores.celoscan.io/api',
+        },
+      },
+    ],
   },
   gasReporter: {
     enable: enableGasReport,

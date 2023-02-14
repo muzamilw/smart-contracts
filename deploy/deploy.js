@@ -17,10 +17,10 @@
 module.exports = async ({getNamedAccounts, deployments}) => {
   const {deploy} = deployments;
   const {deployer} = await getNamedAccounts();
-  await deploy('Tatum721General', {
+  await deploy('BlockchainLaboratories721', {
     from: deployer,
-    args: ["MzNFT1","MZT",true],
+    args: ["MzNFT1","MZT",false],
     log: true,
   });
 };
-module.exports.tags = ['Tatum721General'];
+module.exports.tags = ['BlockchainLaboratories721'];

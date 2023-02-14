@@ -10,7 +10,7 @@ import "../utils/Ownable.sol";
 import "../access/AccessControl.sol";
 import "../token/ERC721/extensions/ERC721Burnable.sol";
 
-contract Tatum721General is ERC721, ERC721Enumerable, ERC721URIStorage, Pausable, AccessControl, ERC721Burnable {
+contract BlockchainLaboratories721  is ERC721, ERC721Enumerable, ERC721URIStorage, Pausable, AccessControl, ERC721Burnable {
     bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
