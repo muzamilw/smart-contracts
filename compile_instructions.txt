@@ -1,5 +1,5 @@
-check out project from github : https://github.com/muzamilw/smart-contracts
-swtich to the root of the project.
+using git check out the latest project code from github : https://github.com/muzamilw/smart-contracts
+swtich to the root of the project. Ensure root of the main project and not in the contracts folder.
 
 install node version v16.15.0
 if some other version, then instal NVN to configure the above ementioned version.
