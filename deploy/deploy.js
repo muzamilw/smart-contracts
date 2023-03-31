@@ -17,10 +17,10 @@
 module.exports = async ({getNamedAccounts, deployments}) => {
   const {deploy} = deployments;
   const {deployer} = await getNamedAccounts();
-  await deploy('BlockchainLaboratories721', {
+  await deploy('EadonForestClub', {
     from: deployer,
-    args: ["MzNFT1","MZT",false],
+    args: ["EadonForestClub","Eadon",false],
     log: true,
   });
 };
-module.exports.tags = ['BlockchainLaboratories721'];
+module.exports.tags = ['EadonForestClub'];

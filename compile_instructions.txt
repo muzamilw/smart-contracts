@@ -34,3 +34,18 @@ run command : yarn hardhat deploy --network alfajores
 
 verify the contract code by locating the BlockchainLaboratories721.json file in the deployments \ network folder.
 Use this file to verify the contract at https://sourcify.dev/#/verifier
+
+Added Tatum Addreses as minter role to the contract :
+So essentially, we have allow Tatum's account as a valid miner on our contract . This is further explained here : https://apidoc.tatum.io/tag/NFT-(ERC-721-or-compatible)/#operation/NftMintErc721 
+
+i.e. : The following table lists the blockchain addresses of the Tatum NFT minters for the testnet and mainnet of the supported blockchains:
+Blockchain	Minter address - testnet*	Minter address - mainnet**
+BNB Smart Chain	0xc16ae5e8c985b906935a0cadf4e24f0400531883	0x49678AAB11E001eb3cB2cBD9aA96b36DC2461A94
+Celo	0xBC2eBA680EE50d685cc4Fe65f102AA70AfB27D3F	0x49678AAB11E001eb3cB2cBD9aA96b36DC2461A94
+Ethereum	0x53e8577C4347C365E4e0DA5B57A589cB6f2AB848	0x49678AAB11E001eb3cB2cBD9aA96b36DC2461A94
+Harmony	0x8906f62d40293ddca77fdf6714c3f63265deddf0	0x49678AAB11E001eb3cB2cBD9aA96b36DC2461A94
+Klaytn	0x80d8bac9a6901698b3749fe336bbd1385c1f98f2	0x49678AAB11E001eb3cB2cBD9aA96b36DC2461A94
+Polygon	0x542b9ac4945a3836fd12ad98acbc76a0c8b743f5	0x49678AAB11E001eb3cB2cBD9aA96b36DC2461A94
+
+
+Use the GrantRole Function to give "0x9f2df0fed2c77648de5860a4cc508cd0818c85b8b8a1ab4ceeef8d981c8956a6"  minter Role to the above mentioned corresponding tatum minter addresses.
