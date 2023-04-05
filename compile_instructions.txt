@@ -35,6 +35,11 @@ run command : yarn hardhat deploy --network alfajores
 verify the contract code by locating the BlockchainLaboratories721.json file in the deployments \ network folder.
 Use this file to verify the contract at https://sourcify.dev/#/verifier
 
+for polygon or other networks where above verifier doesnt work use flat command to generate flat contract like below.:
+run : npx hardhat flat contracts/tatum/EadonForestClub.sol  > contracts/tatum/Eadonforestclub_Flattened.sol
+
+then use the flattened single file to verify the contract. use compiler version 0.8.7
+
 Added Tatum Addreses as minter role to the contract :
 So essentially, we have allow Tatum's account as a valid miner on our contract . This is further explained here : https://apidoc.tatum.io/tag/NFT-(ERC-721-or-compatible)/#operation/NftMintErc721 
 

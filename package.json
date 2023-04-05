@@ -86,6 +86,7 @@
   },
   "dependencies": {
     "@optionality.io/clone-factory": "^0.2.1",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "truffle": "^5.8.1"
   }
 }

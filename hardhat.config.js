@@ -80,6 +80,10 @@ module.exports = {
       chainId: 44787,
       gasPrice: 600000000000
     },
+    polygon_mumbai: {
+      url: "https://rpc-mumbai.maticvigil.com",
+      accounts: [process.env.PKEY]
+    },
     celo: {
       url: "https://forno.celo.org",
       accounts: {
@@ -129,3 +133,18 @@ module.exports = {
     grep: 'Marketplace|NftAuction'
   }
 };
+
+
+task("flat", "Flattens and prints contracts and their dependencies (Resolves licenses)")
+  .addOptionalVariadicPositionalParam("files", "The files to flatten", undefined, types.inputFile)
+  .setAction(async ({ files }, hre) => {
+    let flattened = await hre.run("flatten:get-flattened-sources", { files });
+    
+    // Remove every line started with "// SPDX-License-Identifier:"
+    flattened = flattened.replace(/SPDX-License-Identifier:/gm, "License-Identifier:");
+    flattened = `// SPDX-License-Identifier: MIXED\n\n${flattened}`;
+
+    // Remove every line started with "pragma experimental ABIEncoderV2;" except the first one
+    flattened = flattened.replace(/pragma experimental ABIEncoderV2;\n/gm, ((i) => (m) => (!i++ ? m : ""))(0));
+    console.log(flattened);
+  });
